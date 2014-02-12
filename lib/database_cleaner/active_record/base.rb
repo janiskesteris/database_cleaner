@@ -39,7 +39,7 @@ module DatabaseCleaner
       end
 
       def connection_class
-        @connection_class ||= if db && !db.is_a?(Symbol)
+        @connection_class = if db && !db.is_a?(Symbol)
                                 db
                               elsif connection_hash
                                 lookup_from_connection_pool || establish_connection
